@@ -1,0 +1,25 @@
+.particleCanvas{
+    /* position: absolute; */
+    z-index: -1;
+    
+}
+  .label {
+    width: 575px;
+    height: 46px;
+  }
+  
+  .label .text-wrapper {
+    /* position: absolute; */
+    width: 575px;
+    /* top: 150px; */
+    /* left: 450px; */
+    font-family: "DM Sans-Medium", Helvetica;
+    font-weight: 500;
+    color: #000000;
+    font-size: 36px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 22px;
+    z-index: 3;
+  }
+  

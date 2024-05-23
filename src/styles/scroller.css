@@ -1,0 +1,210 @@
+.frame1 {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .frame1 .overlap-group-wrapper {
+    height: 504px;
+    width: 363px;
+  }
+  
+  .frame1 .overlap-group {
+    height: 504px;
+    position: relative;
+  }
+  
+  .frame1 .rectangle {
+    background-color: #fefeff;
+    height: 504px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 349px;
+  }
+  
+  .frame1 .img {
+    height: 149px;
+    left: 93px;
+    object-fit: cover;
+    position: absolute;
+    top: 46px;
+    width: 152px;
+  }
+  
+  .frame1 .text-wrapper {
+    color: #0e0f0f;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 64px;
+    font-weight: 400;
+    left: 18px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 194px;
+    white-space: nowrap;
+    width: 309px;
+  }
+  
+  .frame1 .this-website-contain {
+    color: #0c0c0c;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    left: 54px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 274px;
+    width: 309px;
+  }
+  
+  .frame1 .ellipse {
+    background-color: #0e0d0d;
+    border-radius: 58px/53.5px;
+    height: 107px;
+    left: 114px;
+    position: absolute;
+    top: 383px;
+    width: 116px;
+  }
+  
+/* 
+
+          .container {
+              width: 300px;
+              height: 450px;
+              background-color: #e1d6d6;
+              padding: 20px;
+              box-sizing: border-box;
+              position: relative;
+          }
+  
+          .logo { width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background-color: #ffffff;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: absolute;
+              bottom: 180px;
+              left: 50%;
+              transform: translateX(-50%);
+              
+          }
+  
+          .logo:hover {
+              background-color: #eaeaea;
+          }
+  
+          .brand-name {
+             margin-top: 10px;
+              font-size: 30px;
+              font-weight: bold;
+              cursor: pointer;
+              text-align: center;
+              color: #4a4a4a;
+              
+          }
+  
+          .brand-name:hover {
+              color: #1a1a1a;;
+          }
+  
+          .rating-container {
+              display: flex;
+              align-items: center;
+              margin-top: 20px;
+          }
+  
+          .rating {
+             
+              font-size: 18px;
+              color:#f39c12 ;
+             cursor: pointer;
+          }
+  
+          .rating:hover {
+              color: #edc27b;;
+          }
+  
+          .likes {
+              font-size: 40px;
+              color: #ff5722;
+              cursor: pointer;
+              margin-left: 165px;
+              bottom:320px;
+          }
+  
+          .likes:hover {
+              color: #645c5c;
+          }
+  
+          .shop-here {
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background-color: #7e57c2;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: absolute;
+              bottom: 20px;
+              left: 50%;
+              transform: translateX(-50%);
+              cursor: pointer;
+          }
+  
+          .shop-here:hover {
+              background-color: #673ab7;
+          }
+ */
+
+          
+
+ .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 16px;
+  width: 300px;
+}
+
+/* Styling for the card image */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Styling for the card content */
+.card-content {
+  padding: 16px;
+}
+
+/* Styling for the card title */
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Styling for the card category */
+.card-category {
+  color: #888;
+  margin-bottom: 8px;
+}
+
+/* Styling for the card rating */
+.card-rating {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+/* Styling for the card rating count */
+.card-rating-count {
+  color: #888;
+}

@@ -1,0 +1,112 @@
+:root {
+  --colors-heading: rgb(0, 0, 0);
+  --colors-grey: rgba(235, 234, 237, 1);
+  --buttons-small-font-family: "DMSans-Medium", Helvetica;
+  --buttons-small-font-weight: 500;
+  --buttons-small-font-size: 16px;
+  --buttons-small-letter-spacing: 0px;
+  --buttons-small-line-height: 22px;
+  --buttons-small-font-style: normal;
+}
+
+
+
+
+.navigation {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.navigation .div {
+  background-color: #ffffff;
+  width: 1400px;
+  height: 100px;
+  position: relative;
+}
+
+.navigation .login {
+  position: absolute;
+  width: 140px;
+  height: 22px;
+  top: 40px;
+  left: 1144px;
+}
+
+.navigation .text-wrapper {
+  left: 79px;
+  position: absolute;
+  top: 0;
+  font-family: var(--buttons-small-font-family);
+  font-weight: var(--buttons-small-font-weight);
+  color: var(--colors-heading);
+  font-size: var(--buttons-small-font-size);
+  letter-spacing: var(--buttons-small-letter-spacing);
+  line-height: var(--buttons-small-line-height);
+  white-space: nowrap;
+  font-style: var(--buttons-small-font-style);
+}
+
+.navigation .text-wrapper-2 {
+  left: 0;
+  position: absolute;
+  top: 0;
+  font-family: var(--buttons-small-font-family);
+  font-weight: var(--buttons-small-font-weight);
+  color: var(--colors-heading);
+  font-size: var(--buttons-small-font-size);
+  letter-spacing: var(--buttons-small-letter-spacing);
+  line-height: var(--buttons-small-line-height);
+  white-space: nowrap;
+  font-style: var(--buttons-small-font-style);
+}
+
+.navigation .startup-framework {
+  position: absolute;
+  width: 111px;
+  height: 19px;
+  top: 41px;
+  left: 644px;
+}
+
+.navigation .startup {
+  position: absolute;
+  top: -7px;
+  left: 1px;
+  font-family: "DM Sans-Bold", Helvetica;
+  font-weight: 700;
+  color: var(--colors-heading);
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: -0.29px;
+  line-height: normal;
+}
+
+.navigation .small-dark-outline {
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  top: 30px;
+  left: 115px;
+  border-radius: 100px;
+  border: 2px solid;
+  border-color: var(--colors-grey);
+}
+
+.navigation .sign-up {
+  position: absolute;
+  height: 22px;
+  top: 6px;
+  left: 36px;
+  font-family: var(--buttons-small-font-family);
+  font-weight: var(--buttons-small-font-weight);
+  color: var(--colors-heading);
+  font-size: var(--buttons-small-font-size);
+  text-align: center;
+  letter-spacing: var(--buttons-small-letter-spacing);
+  line-height: var(--buttons-small-line-height);
+  white-space: nowrap;
+  font-style: var(--buttons-small-font-style);
+}

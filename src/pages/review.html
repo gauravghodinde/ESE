@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Reviews</title>
+    <style>
+        /* Basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="number"],
+        input[type="text"],
+        textarea,
+        button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .rating-heading {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .stars {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .star {
+            font-size: 36px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .star:hover {
+            color: gold;
+        }
+        .selected {
+            color: gold;
+        }
+        .review {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Reviews</h1>
+        <form id="reviewForm">
+            <div class="rating-heading">Rating</div>
+            <div class="stars">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <input type="hidden" id="starRating" name="starRating" value="0">
+            <textarea id="writtenReview" name="writtenReview" placeholder="Written Review (Max 500 characters)" maxlength="500" required></textarea>
+            <input type="text" id="userId" name="userId" placeholder="User ID" required>
+            <button type="submit">Submit Review</button>
+        </form>
+        <div id="reviewList"></div>
+    </div>
+
+    <script>
+        // JavaScript code for interacting with the backend
+        const reviewForm = document.getElementById('reviewForm');
+        const reviewList = document.getElementById('reviewList');
+        const stars = document.querySelectorAll('.star');
+        const starRatingInput = document.getElementById('starRating');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const value = parseInt(star.getAttribute('data-value'));
+                starRatingInput.value = value;
+                highlightStars(value);
+            });
+        });
+
+        function highlightStars(value) {
+            stars.forEach(star => {
+                const starValue = parseInt(star.getAttribute('data-value'));
+                if (starValue <= value) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
+        }
+
+        reviewForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(reviewForm);
+
+            try {
+                const response = await fetch('/reviews/add', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to add review');
+                }
+
+                const newReview = await response.json();
+                displayReview(newReview);
+                reviewForm.reset();
+            } catch (error) {
+                console.error('Error:', error.message);
+            }
+        });
+
+        async function fetchReviews() {
+            try {
+                // Fetch previous reviews
+                const response = await fetch('/reviews');
+                const reviews = await response.json();
+                console.log('Previous Reviews:', reviews);
+
+                // Display previous reviews
+                reviews.forEach(review => displayReview(review));
+            } catch (error) {
+                console.error('Error:', error.message);
+            }
+        }
+
+        async function displayReview(review) {
+            const reviewElement = document.createElement('div');
+            reviewElement.classList.add('review');
+            reviewElement.innerHTML = `
+                <p><strong>Star Rating:</strong> ${review.starRating}</p>
+                <p><strong>Written Review:</strong> ${review.writtenReview}</p>
+                <p><strong>User ID:</strong> ${review.user.id}</p>
+            `;
+            reviewList.appendChild(reviewElement);
+        }
+
+        // Fetch reviews when the page loads
+        window.onload = fetchReviews;
+    </script>
+</body>
+</html>
